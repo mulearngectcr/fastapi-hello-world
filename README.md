@@ -1,121 +1,60 @@
-# Contributing Guidelines
+# FastAPI Hello World
 
-Follow the steps below to submit your solution for this task.
+A simple FastAPI application with multiple endpoints, built as a submission for the MuLearn GECT CR task.
 
----
+## Author
 
-## 1. Fork the Repository
+**Sooraj K R** — 3rd Year CSE Student
 
-Click the **Fork** button at the top-right of the repository, or use the link below:
+## Endpoints
 
-```text
-https://github.com/mulearngectcr/fastapi-hello-world
-```
+| Method | Route | Description |
+|--------|-------|-------------|
+| `GET` | `/` | Returns a hello message from the API |
+| `GET` | `/about` | Returns author name and bio |
+| `GET` | `/greet/{name}` | Returns a personalized greeting |
 
-This will create a copy of the repository under your GitHub account.
-
----
-
-## 2. Clone Your Fork
-
-Replace `<your-username>` with your GitHub username.
+## Setup & Run
 
 ```bash
-git clone https://github.com/<your-username>/fastapi-hello-world.git
+# Clone the repository
+git clone https://github.com/PixelProgrammer4209/fastapi-hello-world.git
 cd fastapi-hello-world
+
+# Create a virtual environment
+python -m venv .venv
+source .venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the server
+uvicorn main:app --reload
 ```
 
----
+The API will be available at `http://127.0.0.1:8000`.
 
-## 3. Create a Branch with Your Name
+Interactive API docs are at `http://127.0.0.1:8000/docs`.
 
-Create a new branch using your name.
+## Example Responses
 
-Example:
-
-```bash
-git checkout -b john-doe
+**`GET /`**
+```json
+{"message": "Hello from my API"}
 ```
 
-You should work only on your own branch.
-
----
-
-## 4. Add Your Solution
-
-Place your files in the repository root.
-
-Example:
-
-```text
-fastapi-hello-world/
-├── main.py
-├── requirements.txt
-├── .gitignore
-└── README.md
+**`GET /about`**
+```json
+{"Name": "Sooraj K R", "Bio": "Hi i am a 3rd year CSE student who is constantly learning"}
 ```
 
-You may also include:
-
-* Screenshots of your application
-* Additional notes about your implementation
-* Solutions to the bonus challenges
-
----
-
-## 5. Commit Your Changes
-
-```bash
-git add .
-git commit -m "Add submission - John Doe"
+**`GET /greet/Sooraj`**
+```json
+{"message": "Hello Sooraj, nice to meet you"}
 ```
 
-Replace `John Doe` with your name.
+## Tech Stack
 
----
-
-## 6. Push Your Branch
-
-Push your branch to your fork:
-
-```bash
-git push origin john-doe
-```
-
-Replace `john-doe` with your branch name.
-
----
-
-## 7. Create a Pull Request
-
-1. Open your fork on GitHub.
-2. Click **Contribute → Open Pull Request**.
-3. Ensure that your branch is selected as the source branch.
-4. Submit the pull request to the original repository.
-
----
-
-## Pull Request Title Format
-
-Use the following format:
-
-```text
-Submission - Your Name
-```
-
-Example:
-
-```text
-Submission - John Doe
-```
-
----
-
-## Important Notes
-
-* Create only one branch using your name.
-* Do not commit directly to the `main` branch.
-* Ensure that your code runs successfully before creating a Pull Request.
-* Feel free to attempt the bonus challenges as well.
-
-Happy coding!
+- **Python** 3.x
+- **FastAPI** — Modern, high-performance web framework
+- **Uvicorn** — ASGI server
